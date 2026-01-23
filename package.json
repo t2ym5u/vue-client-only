@@ -38,6 +38,7 @@
   ],
   "scripts": {
     "dev": "vite",
+    "dev:dist": "vite --mode dist",
     "build": "vite build && vue-tsc -p tsconfig.build.json",
     "build:types": "vue-tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",

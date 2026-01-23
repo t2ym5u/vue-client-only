@@ -1,7 +1,5 @@
 <script setup lang="ts">
-// import { ClientOnly } from "../src/index.ts";
-
-import { ClientOnly } from "../dist/vue-client-only.es.js";
+import { ClientOnly } from "vue-client-only";
 </script>
 
 <template>

@@ -6,15 +6,19 @@ import vueDevTools from "vite-plugin-vue-devtools";
 
 import packageJson from "./package.json";
 
-export default defineConfig(({ mode = "development" }) => {
+export default defineConfig(({ mode = "development", command }) => {
   const isDevMode = mode === "development";
+  const isServe = command === "serve";
 
   return {
-    root: isDevMode ? "example" : "",
+    root: isServe ? "example" : "",
     plugins: [vue(), isDevMode && vueDevTools()].filter(Boolean),
     resolve: {
       alias: {
         "@": fileURLToPath(new URL("./src", import.meta.url)),
+        "vue-client-only": isDevMode
+          ? fileURLToPath(new URL("./src/index.ts", import.meta.url))
+          : fileURLToPath(new URL("./dist/vue-client-only.es.js", import.meta.url)),
       },
     },
     build: {
