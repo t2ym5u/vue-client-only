@@ -35,8 +35,8 @@ import { ClientOnly } from "vue-client-only";
     <!-- This content will only render on the client -->
     <MyBrowserOnlyComponent />
 
-    <!-- Optional: show a placeholder during SSR -->
-    <template #placeholder>
+    <!-- Optional: show a fallback during SSR -->
+    <template #fallback>
       <div>Loading...</div>
     </template>
   </ClientOnly>
@@ -57,10 +57,10 @@ When using Vue with SSR (Nuxt, Vite SSR, etc.), some components:
 
 ### Slots
 
-| Slot          | Description                                              |
-| ------------- | -------------------------------------------------------- |
-| `default`     | Content rendered only after Vue mounts on the client     |
-| `placeholder` | Content rendered during SSR and before client mount      |
+| Slot       | Description                                          |
+| ---------- | ---------------------------------------------------- |
+| `default`  | Content rendered only after Vue mounts on the client |
+| `fallback` | Content rendered during SSR and before client mount  |
 
 ## Requirements
 

@@ -10,5 +10,5 @@ onMounted(() => {
 
 <template>
   <slot v-if="isMounted" />
-  <slot name="placeholder" v-else />
+  <slot v-else name="fallback" />
 </template>

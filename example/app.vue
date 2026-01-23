@@ -6,7 +6,7 @@ import { ClientOnly } from "../dist/vue-client-only.es.js";
 
 <template>
   <ClientOnly>
-    <template #placeholder>
+    <template #fallback>
       <div>Loading...</div>
     </template>
     Loaded content!

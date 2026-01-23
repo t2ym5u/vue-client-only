@@ -18,11 +18,11 @@ describe("ClientOnly", () => {
     expect(wrapper.text()).toContain("Client content");
   });
 
-  it("does not render placeholder after mount", async () => {
+  it("does not render fallback after mount", async () => {
     const wrapper = mount(ClientOnly, {
       slots: {
         default: "<div>Client content</div>",
-        placeholder: "<div>Loading...</div>",
+        fallback: "<div>Loading...</div>",
       },
     });
 
@@ -33,15 +33,15 @@ describe("ClientOnly", () => {
     expect(wrapper.text()).toContain("Client content");
   });
 
-  it("renders placeholder slot initially (SSR simulation)", async () => {
+  it("renders fallback slot initially (SSR simulation)", async () => {
     const wrapper = mount(ClientOnly, {
       slots: {
         default: "<div>Client content</div>",
-        placeholder: "<div>Loading...</div>",
+        fallback: "<div>Loading...</div>",
       },
     });
 
-    // Before flushPromises, the placeholder should be rendered
+    // Before flushPromises, the fallback should be rendered
     // This simulates SSR behavior where onMounted hasn't run yet
     expect(wrapper.text()).toContain("Loading...");
 
@@ -53,7 +53,7 @@ describe("ClientOnly", () => {
     expect(wrapper.text()).not.toContain("Loading...");
   });
 
-  it("renders without placeholder slot", async () => {
+  it("renders without fallback slot", async () => {
     const wrapper = mount(ClientOnly, {
       slots: {
         default: "<div>Only default content</div>",
